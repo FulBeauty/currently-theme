@@ -1,0 +1,71 @@
+[
+  {
+    "name": "Renkler",
+    "settings": [
+      {
+        "type": "color",
+        "id": "primary_color",
+        "label": "Ana Renk",
+        "default": "#8B6F4D"
+      },
+      {
+        "type": "color",
+        "id": "secondary_color", 
+        "label": "İkincil Renk",
+        "default": "#D4C4B0"
+      },
+      {
+        "type": "color",
+        "id": "accent_color",
+        "label": "Vurgu Rengi",
+        "default": "#A0522D"
+      },
+      {
+        "type": "color",
+        "id": "trust_green",
+        "label": "Güven Yeşili",
+        "default": "#6B8E5A"
+      }
+    ]
+  },
+  {
+    "name": "WhatsApp",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_whatsapp_float",
+        "label": "WhatsApp Butonunu Göster",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_number",
+        "label": "WhatsApp Numarası",
+        "default": "905001234567"
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_message",
+        "label": "WhatsApp Mesajı",
+        "default": "Merhaba! Ful Beauty ürünleri hakkında bilgi almak istiyorum."
+      }
+    ]
+  },
+  {
+    "name": "Güven Rozeti",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_trust_badge",
+        "label": "Güven Rozetini Göster",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "trust_badge_text",
+        "label": "Güven Rozeti Metni",
+        "default": "✓ Dermatoloji Uzmanı Onaylı"
+      }
+    ]
+  }
+]

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page_title }}{% if current_tags %} &ndash; {{ 'general.meta.tags' | t }} {{ current_tags | join: ', ' }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}</title>
+    
+    {% if page_description %}
+        <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+    
+    <link rel="canonical" href="{{ canonical_url }}">
+    
+    {%- if settings.favicon != blank -%}
+        <link rel="icon" type="image/png" href="{{ settings.favicon | img_url: '32x32' }}">
+    {%- endif -%}
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    {{ content_for_header }}
+    
+    {{ 'style.css' | asset_url | stylesheet_tag }}
+    
+    <style>
+        :root {
+            --primary-color: {{ settings.primary_color | default: '#8B6F4D' }};
+            --secondary-color: {{ settings.secondary_color | default: '#D4C4B0' }};
+            --accent-color: {{ settings.accent_color | default: '#A0522D' }};
+            --text-primary: {{ settings.text_primary | default: '#2D2621' }};
+            --text-secondary: {{ settings.text_secondary | default: '#5D534A' }};
+            --background-light: {{ settings.background_light | default: '#FAF8F5' }};
+            --trust-green: {{ settings.trust_green | default: '#6B8E5A' }};
+            --luxury-gold: {{ settings.luxury_gold | default: '#D4AF37' }};
+        }
+    </style>
+</head>
+<body class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
+    
+    <a class="skip-to-content-link button visually-hidden" href="#MainContent">
+        {{ 'accessibility.skip_to_content' | t }}
+    </a>
+    
+    {% if settings.show_trust_badge %}
+        <div class="trust-badge">
+            {{ settings.trust_badge_text | default: '✓ Dermatoloji Uzmanı Onaylı' }}
+        </div>
+    {% endif %}
+    
+    {% section 'header' %}
+    
+    <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+        {{ content_for_layout }}
+    </main>
+    
+    {% section 'footer' %}
+    
+    {% if settings.show_whatsapp_float %}
+        {% render 'whatsapp-float' %}
+    {% endif %}
+    
+    <script src="{{ 'script.js' | asset_url }}" defer="defer"></script>
+    
+</body>
+</html>
